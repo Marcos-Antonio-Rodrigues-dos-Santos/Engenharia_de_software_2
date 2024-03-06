@@ -37,9 +37,8 @@ function imc(){
         resp = "Obesidade grau III"
     }
 
-    return(alert(resp))
+    return(alert(`${nome} possui índice de massa corporal igual a ${massa}, sendo classificado como: ${resp}`))
 }
-
 
 
 function idade(){
@@ -111,6 +110,7 @@ function nota(){
 
 }
 
+
 function calcEntrega(){
 
     let pecas = prompt("Quantas peças serão transportadas?");
@@ -163,4 +163,17 @@ function calcEntrega(){
             Taxa total do frete: R$${preco}`)
     }
 
+}
+
+
+function hotel(){
+    let codigo = prompt("Digite código:");
+    let nhoras = prompt("Horas trabalhadas:");
+    let turno = prompt("Seu turno (M – matutino, V – vespertino ou N – noturno):").toUpperCase;
+    let categoria = prompt("Sua categoria (F – funcionário, G – gerente):").toUpperCase;
+    let salariom = prompt("Salário mínimo: ")
+
+
+
+    alert(`${codigo}, ${nhoras}, valor da hora trabalhada, salário inicial, auxílio alimentação e salário final (salário inicial + auxílio-alimentação`)
 }
