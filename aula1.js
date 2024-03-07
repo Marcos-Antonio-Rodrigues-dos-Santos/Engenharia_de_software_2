@@ -167,13 +167,86 @@ function calcEntrega(){
 
 
 function hotel(){
-    let codigo = prompt("Digite código:");
-    let nhoras = prompt("Horas trabalhadas:");
-    let turno = prompt("Seu turno (M – matutino, V – vespertino ou N – noturno):").toUpperCase;
-    let categoria = prompt("Sua categoria (F – funcionário, G – gerente):").toUpperCase;
-    let salariom = prompt("Salário mínimo: ")
+
+    let codigo = prompt("Digite código");
+    let horasTrabalhadas = prompt("Horas trabalhadas");
+    let turno = prompt("Seu turno (M – matutino, V – vespertino ou N – noturno)").toUpperCase;
+    let categoria = prompt("Sua categoria (F – funcionário, G – gerente)").toUpperCase;
+    let salarioMinimo = prompt("Salário mínimo de seu estado")
+    let valorHora;
+    let salarioInicial;
+    let auxilioAlimetacao;
+    let salarioFinal
 
 
 
-    alert(`${codigo}, ${nhoras}, valor da hora trabalhada, salário inicial, auxílio alimentação e salário final (salário inicial + auxílio-alimentação`)
+    if (categoria == "G" && (turno = "N")){
+        valorHora = salarioMinimo*0.06  
+    }
+
+    else if(categoria == "G" && (turno = ("M" || "V"))){
+        valorHora = salarioMinimo*0.04 
+    }
+
+    else if(categoria == "F" && (turno = "N")){
+        valorHora = salarioMinimo*0.02 
+    }
+
+    else if(categoria == "F" && (turno = ("M" || "V"))){
+        valorHora = salarioMinimo*0.01
+    }
+
+    salarioInicial = valorHora*horasTrabalhadas
+
+    if(salarioInicial <= 800){
+        auxilioAlimetacao = salarioInicial*0.25 
+    }
+
+    else if(800 < salarioInicial <= 1200){
+        auxilioAlimetacao = salarioInicial*0.20
+    }
+
+    else if(salarioInicial > 1200){
+        auxilioAlimetacao = salarioInicial*0.15
+    }
+
+    salarioFinal = salarioInicial + auxilioAlimetacao
+
+    alert(`Código: ${codigo}\n
+    Horas trabalhadas: ${horasTrabalhadas}\n
+    Valor da hora trabalhada: ${valorHora}\n
+    Salário inicial: ${salarioInicial}\n
+    Auxílio alimentação: ${auxilioAlimetacao}\n
+    Salário final: ${salarioFinal}`);
+
+}
+
+
+function calcAritetico(){
+
+    let primeiroNumero = input("Digite um número");
+    let operacao = input("Digite qual operação quer fazer entre soma ou subtração").toUpperCase
+    let segundoNumero = input("Digite outro número")
+
+    if(operacao == "soma"){
+        alert(`O resultado é: ${primeiroNumero+segundoNumero}`)
+    }
+
+    else if(operacao == "subtração"){
+        alert(`O resultado é: ${primeiroNumero-segundoNumero}`)
+    }
+}
+
+
+function data(){
+    
+    let data = input("Digite uma data no formato “dd/mm/aaaa”")
+
+    let lista = ("janeiro, fevereiro, março, abril, maio, junho, julho, agosto, setembro, outubro, novembro, dezembro")
+
+    let dataSplit = data.split("/")
+
+    let novaLista = lista.split(", ")
+
+    alert(`${dataSplit[0]} de ${novaLista[Geolocation(dataSplit[1])]} de ${dataSplit[2]}`)
 }
